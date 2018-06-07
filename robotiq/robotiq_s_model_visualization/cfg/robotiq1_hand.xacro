@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<!-- 
+s-model_articulated - articulated version of the robotiq s-model,
+3 fingered gripper.                                                
+-->
+<robot name="robotiq_hand" xmlns:xacro="http://ros.org/wiki/xacro">
+<link name = "world"/>
+	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/robotiq1_hand_macro.urdf.xacro" />
+	<xacro:robotiq_hand prefix="l_" parent="world" xyz="0 0 0.5" rpy="1.5707 0 0"/>
+<!--
+	<xacro:include filename="$(find robotiq_s_model_visualization)/cfg/s-model_finger_articulated_macro.xacro" />
+	<xacro:s-model_finger_articulated prefix=""/>
+-->
+</robot>
+

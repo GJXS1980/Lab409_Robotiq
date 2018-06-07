@@ -1,0 +1,51 @@
+package robotiqhand;
+
+// Basic high level commands
+struct command_t
+{
+  int64_t utime;
+
+  // flag to set the hand as active
+  // 1 - active
+  // 0 - not active
+  int8_t activate;
+
+  // flag perform an emergency release
+  // (if this flag is set, everything else is ignored
+  //  and the hand will do an auto release, which will
+  //  need a recalibration before resuming)
+  // 1 - active
+  // 0 - not active
+  int8_t emergency_release;
+
+  // 1 - move the gripper this this command
+  // 0 - don't move, just changing a mode or setting
+  int8_t do_move;
+
+  // -1 - ignore (use previous mode)
+  //  0 - basic (normal)
+  //  1 - pinch
+  //  2 - wide
+  //  3 - scissor
+  int8_t mode;
+
+  // The range for all of these is 0-255
+  int16_t position;
+  int16_t force;
+  int16_t velocity;
+
+  // Individual finger control
+  // 1 - active
+  // 0 - inactive
+  int8_t ifc;
+  int16_t positionA;
+  int16_t positionB;
+  int16_t positionC;
+
+  // Indiviual scissor control
+  // 1 - active
+  // 0 - inactive
+  int8_t isc;
+  int16_t positionS;
+
+}

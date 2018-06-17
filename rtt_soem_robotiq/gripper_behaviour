@@ -1,0 +1,64 @@
+Switch off power
+Switch on power
+Reactivate gripper 
+Put gripper in individual mode (rICF = 1 && rICS = 1)
+
+------------------- Behaviour 1 ---------------------
+-- command for fingerA always same as for fingers B&C
+-- command for fingers is 230 and NOT 255
+----------------------------------------------------
+
+Open gripper: SetFingersPosition(0,0,0)
+Open scissor: SetScissorPosition(0)
+Close gripper: SetFingersPosition(230,230,230)
+Close scissor: SetScissorPosition(255) 								  --> scissors close partly	
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 141  --> inconsistent: "At requested Pos" while clearly actPos != reqPos
+Open gripper: SetFingersPosition(0,0,0)
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 212  --> scissors DO continue closing while opening the gripper
+
+------------------- Behaviour 2 --------------------- 
+-- Difference: command for fingerA is always: 128
+-- command for fingers is 230 and NOT 255
+----------------------------------------------------
+
+Open gripper: SetFingersPosition(128,0,0)
+Open scissor: SetScissorPosition(0)
+Close gripper: SetFingersPosition(128,230,230)
+Close scissor: SetScissorPosition(255)									  --> scissors close partly
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 141  --> inconsistent: "At requested Pos" while clearly actPos != reqPos
+Open gripper: SetFingersPosition(128,0,0)
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 141  --> scissors do NOT continue closing while opening the gripper
+Apperently, the scissors cannot be closed in this configuration. Only after commanding Finger A to open as well, the scissors close completely. 
+
+------------------- Behaviour 3 ---------------------
+-- command for fingerA always same as for fingers B&C 
+-- command for fingers is 230 and NOT 255
+----------------------------------------------------
+
+Open gripper: SetFingersPosition(0,0,0)
+Open scissor: SetScissorPosition(0)
+Close gripper: SetFingersPosition(255,255,255)
+	Status of all Fingers: gDT = 11 while gPRS = 255 and gPOS = 240 --> strongly clamping on the gripper housing
+Close scissor: SetScissorPosition(255)										 --> scissors do not move at all	
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 15     --> inconsistent: "At requested Pos" while clearly actPos != reqPos
+Open gripper: SetFingersPosition(0,0,0)
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 212	 --> scissors start closing while opening the gripper
+
+------------------- Behaviour 4 ---------------------
+-- Difference: command for fingerA is always: 128
+-- command for fingers is 230 and NOT 255
+----------------------------------------------------
+
+Open gripper: SetFingersPosition(0,0,0)
+Open scissor: SetScissorPosition(0)
+Close gripper: SetFingersPosition(128,255,255)
+	Status of all Fingers: gDT = 11 while gPRS = 255 and gPOS = 240 --> strongly clamping on the gripper housing
+Close scissor: SetScissorPosition(255)										 --> scissors do not move at all	
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 15     --> inconsistent: "At requested Pos" while clearly actPos != reqPos
+Open gripper: SetFingersPosition(128,0,0)
+	Status of Scissor: gDTS = 11 while gPRS = 255 and gPOS = 141	 --> scissors start closing while opening the gripper but only up to half of the range of motion
+Apperently, the scissors cannot be closed in this configuration. Only after commanding Finger A to open as well, the scissors close completely. 
+
+
+
+

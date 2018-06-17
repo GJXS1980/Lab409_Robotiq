@@ -1,7 +1,8 @@
 # robotiq
 ### 安装依赖
+```
 sudo apt-get install libmuparser-dev
-
+```
 ### 教程一.带有robotiq夹具的ur5机器人ROS包
 #### 1.rviz中UR5的可视化
 要用抓手可视化机器人模型，请执行以下操作：

@@ -691,7 +691,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 
   </xacro:macro>
 
-  <xacro:macro name="robotiq_hand" params="prefix *origin reflect parent">
+  <xacro:macro name="robotiq_hand" params="prefix *origin parent">
 
     <!-- joint attaching parent link to robotiq hand -->
     <joint name="${prefix}robotiq_hand_joint" type="fixed">

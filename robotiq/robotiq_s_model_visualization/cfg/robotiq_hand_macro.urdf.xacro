@@ -782,6 +782,18 @@ there are multiple hands then a prefix followed by an "_" is needed.
       <limit lower="0" upper="0" effort="60" velocity="-1"/>
     </joint>
 
+
+    <!-- Grasping frame -->
+    <link name="grasping_frame"/>
+
+    <joint name="grasping_frame_joint" type="fixed">
+      <parent link="${prefix}palm"/>
+      <child link="grasping_frame"/>
+      <origin xyz="0 0 1.57" rpy="0.0455 0.0214 0"/>
+    </joint>
+
+
+
     <gazebo reference="${prefix}palm_finger_middle_joint">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>

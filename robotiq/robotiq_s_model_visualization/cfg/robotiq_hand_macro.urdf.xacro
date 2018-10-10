@@ -789,7 +789,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
     <joint name="grasping_frame_joint" type="fixed">
       <parent link="${prefix}palm"/>
       <child link="grasping_frame"/>
-      <origin xyz="0 0 1.57" rpy="0.0455 0.0214 0"/>
+      <origin xyz="0 0.1 0.01" rpy="0 -1.5708 3.14159"/>
     </joint>
 
 

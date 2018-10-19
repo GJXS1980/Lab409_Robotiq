@@ -35,14 +35,14 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/visual/link_0.STL" />
         </geometry>
-        <material name="green" />
+        <material name="black_iq" />
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/collision/link_0.STL" />
         </geometry>
-        <material name="yellow_iq" />
+        <material name="black_iq" />
       </collision>
       <inertial>
         <mass value="0.1"/>
@@ -63,14 +63,14 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/visual/link_1.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="black_iq"/>
       </visual>
       <collision>
         <origin xyz="0 0.05717 0" rpy="0 0 ${M_PI/2}" />
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/collision/link_1.STL"/>
         </geometry>
-        <material name="yellow_iq" />
+        <material name="black_iq" />
       </collision>
       <inertial>
         <origin xyz="0.00053 0.03218 0" rpy="0 0 ${M_PI/2}" />
@@ -96,14 +96,14 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/visual/link_2.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="black_iq"/>
       </visual>
       <collision>
         <origin xyz="0 0.03810 0.0075" rpy="0 0 ${M_PI/2}" />
           <geometry>
             <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/collision/link_2.STL"/>
           </geometry>
-        <material name="yellow_iq"/>
+        <material name="black_iq"/>
       </collision>
       <inertial>
         <origin xyz="0.00048 0.02167 0.00018" rpy="0 0 ${M_PI/2}" />
@@ -129,14 +129,14 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/visual/link_3.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="white_iq"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/collision/link_3.STL"/>
         </geometry>
-        <material name="yellow_iq"/>
+        <material name="black_iq"/>
       </collision>
       <inertial>
         <origin xyz="0.01626 0.00049 0.0002" rpy="0 0 0" />
@@ -724,7 +724,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
           <geometry>
             <mesh filename="package://robotiq_s_model_visualization/meshes/s-model_articulated/visual/palm.STL" />
           </geometry>
-          <material name="green" />
+          <material name="black_iq" />
         </visual>
         <!-- Simple shape collision -->
         <collision>
@@ -732,7 +732,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
           <geometry>
             <box size="0.1 0.1 0.1"/>
           </geometry>
-          <material name="yellow_iq" />
+          <material name="black_iq" />
         </collision>
         <inertial>
           <origin xyz="0 0 0" rpy="0 0 0"/>

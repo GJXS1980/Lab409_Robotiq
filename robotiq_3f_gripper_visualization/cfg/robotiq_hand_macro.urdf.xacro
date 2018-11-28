@@ -8,6 +8,10 @@ there are multiple hands then a prefix followed by an "_" is needed.
 -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotiq_hand">
 
+
+
+
+
   <xacro:macro name="robotiq_finger" params="prefix">
     <!-- Link list -->
 
@@ -18,9 +22,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_0.STL" />
         </geometry>
-        <material name="green">
-          <color rgba="0 1 0 1"/>
-        </material>
+      <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -50,7 +52,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_1.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 ${3.1416/2}" xyz="0 0.05717 0"/>
@@ -85,7 +87,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_2.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 ${3.1416/2}" xyz="0 0.03810 0.0075"/>
@@ -118,7 +120,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_3.STL" />
         </geometry>
-        <material name="green"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -151,6 +153,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.02858 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.01429 0 0"/>
@@ -182,6 +185,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.02286 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.01143 0 0"/>
@@ -214,6 +218,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.05398 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.026789 0 0"/>
@@ -245,6 +250,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.05770 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.02885 0 0"/>
@@ -276,6 +282,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size=".02 .02 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -307,6 +314,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.0381 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.01905 0 0"/>
@@ -338,6 +346,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size=".02 .02 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -369,6 +378,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size="0.0381 .0075 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.01905 0 0"/>
@@ -400,6 +410,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
         <geometry>
           <box size=".02 .02 .002"/>
         </geometry>
+ <material name="black"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -713,9 +724,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
           <geometry>
             <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/palm.STL" />
           </geometry>
-          <material name="green">
-            <color rgba="0 1 0 1"/>
-          </material>
+        <material name="black"/>
         </visual>
         <!-- Simple shape collision -->
         <collision>

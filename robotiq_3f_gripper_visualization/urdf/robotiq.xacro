@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+robotiq-3f-gripper_articulated - articulated version of the robotiq robotiq-3f-gripper,
+3 fingered gripper.                                                
+-->
+<robot name="robotiq_hand" xmlns:xacro="http://ros.org/wiki/xacro">
+
+        <xacro:include filename="$(find robotiq_3f_gripper_visualization)/urdf/robotiq_articulated_macro.xacro" />
+        <xacro:robotiq_articulated_macro prefix=""/>
+
+<!--
+        <xacro:include filename="$(find robotiq_3f_gripper_visualization)/cfg/robotiq-3f-gripper_finger_articulated_macro.xacro" />
+        <xacro:robotiq-3f-gripper_finger_articulated prefix=""/>
+-->
+</robot>
+

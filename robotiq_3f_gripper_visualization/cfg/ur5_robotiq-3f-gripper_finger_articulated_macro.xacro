@@ -1,6 +1,4 @@
-<?xml version="1.0" ?>
-
-
+<?xml version='1.0' encoding='utf-8'?>
 <!--
 robotiq-3f-gripper_finder_articulated_macro(prefix)
 
@@ -9,16 +7,26 @@ prefix typcially includes the hand prefix and an identifier for the
 finger(i.e. finger_1, etc...).
 
 -->
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
-        <xacro:macro name="robotiq-3f-gripper_finger_articulated" params="prefix">
-		<!-- link list -->
-		<link name="${prefix}link_0">
-			<visual>
-				<origin xyz="0.020 0 0" rpy="0 0 0"/>
-				<geometry>
-                                        <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_0.STL" />
-				</geometry>
-				<material name="gray">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robotiq_hand">
+  <xacro:macro name="robotiq_hand" params="prefix connected_to:='' rpy:='0 0 0' xyz:='0 0 0'">
+    
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="${prefix}ur5_robotiq_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="${prefix}link_0"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+      </joint>
+    </xacro:unless>
+
+
+	<!-- link list -->
+	<link name="${prefix}link_0">
+	<visual>
+		<origin xyz="0.020 0 0" rpy="0 0 0"/>
+		<geometry>
+                <mesh filename="package://robotiq_3f_gripper_visualization/meshes/robotiq-3f-gripper_articulated/visual/link_0.STL" />
+		</geometry>
+		<material name="gray">
 					<color rgba="0.2 0.2 0.2 1"/>
 				</material>
 			</visual>

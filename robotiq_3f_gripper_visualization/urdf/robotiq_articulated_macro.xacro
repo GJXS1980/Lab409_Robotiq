@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-
+<?xml version="1.0" encoding="utf-8"?>
 
 <!--
 robotiq-3f-gripper_articulated_macro(prefix)
@@ -10,11 +9,22 @@ there are multiple hands then a prefix followed by an "_" is needed.
 
 -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-    <xacro:include filename="$(find robotiq_3f_gripper_visualization)/cfg/robotiq-3f-gripper_finger_articulated_macro.xacro" />
-    <xacro:macro name="robotiq-3f-gripper_articulated" params="prefix">
-    <xacro:robotiq-3f-gripper_finger_articulated prefix="${prefix}finger_1_"/>
-    <xacro:robotiq-3f-gripper_finger_articulated prefix="${prefix}finger_2_"/>
-    <xacro:robotiq-3f-gripper_finger_articulated prefix="${prefix}finger_middle_"/>
+
+    <xacro:include filename="$(find robotiq_3f_gripper_visualization)/urdf/robotiq-hand.xacro" />
+
+    <xacro:macro name="robotiq_articulated_macro" params="prefix connected_to:='' rpy:='0 0 0' xyz:='0 0 0'">
+    <xacro:robotiq_hand prefix="${prefix}finger_1_"/>
+    <xacro:robotiq_hand prefix="${prefix}finger_2_"/>
+    <xacro:robotiq_hand prefix="${prefix}finger_middle_"/>
+
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="${prefix}ur5_robotiq_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="${prefix}palm"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+      </joint>
+    </xacro:unless>
+
 		<!-- link list -->
 		<link name="${prefix}palm">
 			<visual>
@@ -50,7 +60,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="1.3"/>
+            <mass value="0.5"/>
             <inertia ixx="0.006012" ixy="0.000079" ixz="-0.00024" iyy="0.012892" iyz="0" izz="0.002435" />
         </inertial>
 		<!-- end of link list -->
@@ -104,7 +114,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
 		</joint>
 
 
-        <transmission name="${prefix}palm_finger_middle_joint_trans">
+        <!--transmission name="${prefix}palm_finger_middle_joint_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}palm_finger_middle_joint" >
                 <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
@@ -113,7 +123,7 @@ there are multiple hands then a prefix followed by an "_" is needed.
                 <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
-        </transmission>
+        </transmission-->
 
 
 		<joint name="${prefix}palm_tool0" type="fixed">

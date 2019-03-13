@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-
+<?xml version="1.0" encoding="utf-8"?>
 
 <!--
 robotiq-3f-gripper_finder_articulated_macro(prefix)
@@ -10,7 +9,7 @@ finger(i.e. finger_1, etc...).
 
 -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-        <xacro:macro name="robotiq-3f-gripper_finger_articulated" params="prefix">
+        <xacro:macro name="robotiq_hand" params="prefix">
 		<!-- link list -->
 		<link name="${prefix}link_0">
 			<visual>
